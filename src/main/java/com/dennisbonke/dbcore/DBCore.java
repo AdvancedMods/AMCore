@@ -1,7 +1,9 @@
 package com.dennisbonke.dbcore;
 
 import com.dennisbonke.dbcore.common.CommonProxy;
+import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
 import com.dennisbonke.dbcore.core.DBCoreProps;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -29,6 +31,25 @@ public class DBCore {
 
         log.info("Starting PreInit...");
         // Do PreInit stuff
+        // Load the config
+        log.info("Loading config");
+        try {
+            ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+            FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+            // NOTE: This is debug, kinda
+            // Check configTest value
+            if (ConfigurationHandler.configTest == true) {
+                log.info("Test value is true");
+            }
+            else if (ConfigurationHandler.configTest == false){
+                log.info("Test value is false");
+            }
+            else {
+                log.warn("Could not find test value, this is strange");
+            }
+        } catch (Exception e){
+            log.error("Could not load configuration file, this is a severe error and should be noted");
+        }
         proxy.preInit();
         log.info("PreInit Finished");
 
