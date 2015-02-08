@@ -9,7 +9,7 @@ public class DBCoreProps {
     public static final String MC_VERSION = "1.7.10";
     public static final String FORGE_BASE = "10.13.2.";
     public static final String FORGE_BUILD = "1240";
-    public static final String FORGE_VERSION = "[" + FORGE_BASE + FORGE_BUILD + ")";
+    public static final String FORGE_VERSION = "[" + FORGE_BASE + FORGE_BUILD + "]";
 
     // General Mod Stuff
     public static final String name = "DBCore";
