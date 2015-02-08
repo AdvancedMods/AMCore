@@ -29,7 +29,7 @@ public class DBCore {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
 
-        log.info("Starting PreInit...");
+        log.info("Starting Pre-Init...");
         // Do PreInit stuff
         // Load the config
         log.info("Loading config");
@@ -51,7 +51,7 @@ public class DBCore {
             log.error("Could not load configuration file, this is a severe error and should be noted");
         }
         proxy.preInit();
-        log.info("PreInit Finished");
+        log.info("Pre-Init Finished");
 
     }
 
@@ -68,10 +68,10 @@ public class DBCore {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event){
 
-        log.info("Starting PostInit");
+        log.info("Starting Post-Init");
         // Do PostInit stuff
         proxy.postInit();
-        log.info("PostInit Finished");
+        log.info("Post-Init Finished");
 
     }
 

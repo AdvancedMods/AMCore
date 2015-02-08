@@ -1,6 +1,5 @@
 package com.dennisbonke.dbcore.common.handler;
 
-import com.dennisbonke.dbcore.DBCore;
 import com.dennisbonke.dbcore.core.DBCoreProps;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -15,14 +14,14 @@ public class ConfigurationHandler {
 
     public static Configuration configuration;
     public static boolean configTest = true;
+    public static boolean enableTestItem = true;
+    //public static boolean niceStuff = true;
 
     public static void init(File configFile)
     {
         // Create the configuration object from the given configuration file
         if (configuration == null)
         {
-            DBCore.log.warn("Could not find configuration file. If this is the first time that you load this mod, this is perfectly normal");
-            DBCore.log.warn("Creating and using default config");
             configuration = new Configuration(configFile);
             loadConfiguration();
         }
@@ -40,7 +39,9 @@ public class ConfigurationHandler {
     private static void loadConfiguration()
     {
         // Name, Category, Default value, Description
-        configTest = configuration.getBoolean("configValue", Configuration.CATEGORY_GENERAL, true, "This is an example configuration value");
+        configTest = configuration.getBoolean("configTest", Configuration.CATEGORY_GENERAL, true, "This is an example configuration value");
+        enableTestItem = configuration.getBoolean("enableTestItem", Configuration.CATEGORY_GENERAL, true, "Enable Test Item");
+        //niceStuff = configuration.getBoolean("niceStuff", Configuration.CATEGORY_GENERAL, true, "You like it!");
 
         if (configuration.hasChanged())
         {
