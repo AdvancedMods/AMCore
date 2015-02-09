@@ -27,7 +27,7 @@ public class DBCore {
     public static Logger log = LogManager.getLogger("DBCore");
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event){
+    public void preInit(FMLPreInitializationEvent event) {
 
         log.info("Starting Pre-Init...");
         // Do PreInit stuff
@@ -40,14 +40,12 @@ public class DBCore {
             // Check configTest value
             if (ConfigurationHandler.configTest == true) {
                 log.info("Test value is true");
-            }
-            else if (ConfigurationHandler.configTest == false){
+            } else if (ConfigurationHandler.configTest == false) {
                 log.info("Test value is false");
-            }
-            else {
+            } else {
                 log.warn("Could not find test value, this is strange");
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("Could not load configuration file, this is a severe error and should be noted");
         }
         proxy.preInit();
@@ -56,7 +54,7 @@ public class DBCore {
     }
 
     @EventHandler
-    public void Init(FMLInitializationEvent event){
+    public void Init(FMLInitializationEvent event) {
 
         log.info("Starting Init...");
         // Do Init stuff
@@ -66,7 +64,7 @@ public class DBCore {
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event){
+    public void postInit(FMLPostInitializationEvent event) {
 
         log.info("Starting Post-Init");
         // Do PostInit stuff

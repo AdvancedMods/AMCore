@@ -8,17 +8,17 @@ import com.dennisbonke.dbcore.common.init.ModItems;
  */
 public class CommonProxy {
 
-    public static void preInit(){
+    public static void preInit() {
 
         ModItems.init();
         ModBlocks.init();
     }
 
-    public static void Init(){
+    public static void Init() {
 
     }
 
-    public static void postInit(){
+    public static void postInit() {
 
     }
 

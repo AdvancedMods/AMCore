@@ -16,13 +16,12 @@ public class ModBlocks {
     public static ConfigurationHandler config;
     public static final BlockDBC testblock = new BlockTest();
 
-    public static void init(){
+    public static void init() {
 
         if (config.enableTestBlock == true) {
             GameRegistry.registerBlock(testblock, "test");
             DBCore.log.info("Block loaded");
-        }
-        else{
+        } else {
             DBCore.log.info("Block not loaded");
         }
     }

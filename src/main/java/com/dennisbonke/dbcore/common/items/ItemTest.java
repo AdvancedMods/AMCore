@@ -7,7 +7,7 @@ import com.dennisbonke.dbcore.common.generic.ItemDBC;
  */
 public class ItemTest extends ItemDBC {
 
-    public ItemTest(){
+    public ItemTest() {
         super();
         this.setUnlocalizedName("testitem");
     }

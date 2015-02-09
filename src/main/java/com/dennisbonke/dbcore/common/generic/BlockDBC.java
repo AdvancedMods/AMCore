@@ -13,30 +13,27 @@ import net.minecraft.creativetab.CreativeTabs;
  */
 public class BlockDBC extends Block {
 
-    public BlockDBC(Material material){
+    public BlockDBC(Material material) {
         super(material);
         this.setCreativeTab(CreativeTabs.tabBlock);
     }
 
-    public BlockDBC(){
+    public BlockDBC() {
         this(Material.rock);
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
+    public String getUnlocalizedName() {
         return String.format("tile.%s%s", DBCoreProps.modid.toLowerCase() + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
+    public void registerBlockIcons(IIconRegister iconRegister) {
         blockIcon = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
     }
 
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 

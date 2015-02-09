@@ -16,13 +16,12 @@ public class ModItems {
     public static ConfigurationHandler config;
     public static final ItemDBC testitem = new ItemTest();
 
-    public static void init(){
+    public static void init() {
 
-        if (config.enableTestItem == true){
+        if (config.enableTestItem == true) {
             DBCore.log.info("Item loaded");
             GameRegistry.registerItem(testitem, "testitem");
-        }
-        else {
+        } else {
             DBCore.log.info("Item not loaded");
         }
 

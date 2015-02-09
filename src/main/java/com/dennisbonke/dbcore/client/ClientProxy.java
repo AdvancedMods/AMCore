@@ -10,15 +10,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
 
-    public static void preInit(){
+    public static void preInit() {
 
     }
 
-    public static void Init(){
+    public static void Init() {
 
     }
 
-    public static void postInit(){
+    public static void postInit() {
 
     }
 

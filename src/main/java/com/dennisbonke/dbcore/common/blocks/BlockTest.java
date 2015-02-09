@@ -7,7 +7,7 @@ import com.dennisbonke.dbcore.common.generic.BlockDBC;
  */
 public class BlockTest extends BlockDBC {
 
-    public BlockTest(){
+    public BlockTest() {
         super();
         this.setBlockName("test");
         this.setBlockTextureName("test");
