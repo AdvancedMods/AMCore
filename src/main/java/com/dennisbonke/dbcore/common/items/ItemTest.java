@@ -5,9 +5,9 @@ import com.dennisbonke.dbcore.common.generic.ItemDBC;
 /**
  * Created by Dennisbonke on 8-2-2015.
  */
-public class TestItem extends ItemDBC {
+public class ItemTest extends ItemDBC {
 
-    public TestItem(){
+    public ItemTest(){
         super();
         this.setUnlocalizedName("testitem");
     }

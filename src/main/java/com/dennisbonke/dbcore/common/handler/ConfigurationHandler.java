@@ -15,6 +15,7 @@ public class ConfigurationHandler {
     public static Configuration configuration;
     public static boolean configTest = true;
     public static boolean enableTestItem = true;
+    public static boolean enableTestBlock = true;
     //public static boolean niceStuff = true;
 
     public static void init(File configFile)
@@ -41,6 +42,7 @@ public class ConfigurationHandler {
         // Name, Category, Default value, Description
         configTest = configuration.getBoolean("configTest", Configuration.CATEGORY_GENERAL, true, "This is an example configuration value");
         enableTestItem = configuration.getBoolean("enableTestItem", Configuration.CATEGORY_GENERAL, true, "Enable Test Item");
+        enableTestBlock = configuration.getBoolean("enableTestBlock", Configuration.CATEGORY_GENERAL, true, "Enable Test Block");
         //niceStuff = configuration.getBoolean("niceStuff", Configuration.CATEGORY_GENERAL, true, "You like it!");
 
         if (configuration.hasChanged())

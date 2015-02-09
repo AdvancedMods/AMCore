@@ -3,7 +3,7 @@ package com.dennisbonke.dbcore.common.init;
 import com.dennisbonke.dbcore.DBCore;
 import com.dennisbonke.dbcore.common.generic.ItemDBC;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
-import com.dennisbonke.dbcore.common.items.TestItem;
+import com.dennisbonke.dbcore.common.items.ItemTest;
 import com.dennisbonke.dbcore.core.DBCoreProps;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -14,7 +14,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModItems {
 
     public static ConfigurationHandler config;
-    public static final ItemDBC testitem = new TestItem();
+    public static final ItemDBC testitem = new ItemTest();
 
     public static void init(){
 

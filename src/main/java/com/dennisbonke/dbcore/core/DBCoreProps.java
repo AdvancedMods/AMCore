@@ -17,6 +17,6 @@ public class DBCoreProps {
     public static final String version = "0.0.1";
     public static final String clientproxy = "com.dennisbonke.dbcore.client.ClientProxy";
     public static final String commonproxy = "com.dennisbonke.dbcore.common.CommonProxy";
-    public static final String dependencies = "required-after:Forge@" + FORGE_VERSION;
+    public static final String dependencies = "required-after:Forge@" + FORGE_VERSION + ";after:CoFHCore";
 
 }
