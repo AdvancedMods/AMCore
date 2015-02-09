@@ -44,10 +44,10 @@ public class DBCore extends BaseMod {
         CheckMods.checkMCVersion();
         // Do PreInit stuff
         // Load the config
-        log.info("Loading config");
+        log.info("Loading config...");
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
         try {
-            ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-            FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
             // NOTE: This is debug, kinda
             // Check configTest value
             if (ConfigurationHandler.configTest == true) {
