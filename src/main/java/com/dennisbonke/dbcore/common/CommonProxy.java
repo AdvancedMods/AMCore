@@ -9,6 +9,10 @@ import com.dennisbonke.dbcore.core.enviroment.CheckMods;
  */
 public class CommonProxy {
 
+    public static void registerKeyBindings() {
+
+    }
+
     public static void preInit() {
 
         CheckMods.checkMods();

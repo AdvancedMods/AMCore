@@ -1,5 +1,6 @@
 package com.dennisbonke.dbcore;
 
+import com.dennisbonke.dbcore.client.handler.KeyInputEventHandler;
 import com.dennisbonke.dbcore.common.CommonProxy;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
 import com.dennisbonke.dbcore.core.DBCoreProps;
@@ -54,10 +55,13 @@ public class DBCore extends BaseMod {
         } catch (Exception e) {
             log.error("Could not load configuration file, this is a severe error and should be noted");
         }
+        // Loading mod stuff
         proxy.preInit();
-        // Checking for updated
+        // Checking for updated version
         log.info("Starting update checker");
         UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/Dennisbonke/DBCore/master/VERSION", "http://teamcofh.com/downloads/"));
+        // Register Keybindings
+        proxy.registerKeyBindings();
         log.info("Pre-Init Finished");
 
     }
@@ -68,6 +72,8 @@ public class DBCore extends BaseMod {
         log.info("Starting Init...");
         // Do Init stuff
         proxy.Init();
+        // Register KeyInputEventHandler
+        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
         log.info("Init Finished");
 
     }

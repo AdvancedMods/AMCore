@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.0.1"
+version = "0.0.1-A2"
 group= "com.dennisbonke.dbcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "dbcore"
+archivesBaseName = "DBCore"
 
 minecraft {
     version = "1.7.10-10.13.2.1240"
