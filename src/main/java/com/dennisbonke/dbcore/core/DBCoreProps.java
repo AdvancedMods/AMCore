@@ -19,7 +19,7 @@ public class DBCoreProps {
     // General Mod Stuff
     public static final String name = "DBCore";
     public static final String modid = "dbcore";
-    public static final String version = VERSION_BASE + "-" + VERSION_IDENTIFIER;
+    public static final String version = MC_VERSION + "-" + VERSION_BASE + "-" + VERSION_IDENTIFIER;
     public static final String clientproxy = "com.dennisbonke.dbcore.client.ClientProxy";
     public static final String commonproxy = "com.dennisbonke.dbcore.common.CommonProxy";
     public static final String dependencies = "required-after:Forge@" + FORGE_VERSION + ";after:CoFHCore";

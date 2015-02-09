@@ -2,6 +2,7 @@ package com.dennisbonke.dbcore.common.init;
 
 import com.dennisbonke.dbcore.DBCore;
 import com.dennisbonke.dbcore.common.blocks.BlockTest;
+import com.dennisbonke.dbcore.common.blocks.EnergyStorageBlockTest;
 import com.dennisbonke.dbcore.common.generic.BlockDBC;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
 import com.dennisbonke.dbcore.core.DBCoreProps;
@@ -15,6 +16,7 @@ public class ModBlocks {
 
     public static ConfigurationHandler config;
     public static final BlockDBC testblock = new BlockTest();
+    public static final EnergyStorageBlockTest energytestblock = new EnergyStorageBlockTest();
 
     public static void init() {
 
@@ -24,6 +26,8 @@ public class ModBlocks {
         } else {
             DBCore.log.info("Block not loaded");
         }
+
+        GameRegistry.registerBlock(energytestblock, "energytestblock");
     }
 
 }
