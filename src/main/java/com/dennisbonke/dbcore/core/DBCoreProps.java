@@ -11,6 +11,9 @@ public class DBCoreProps {
     public static final String FORGE_BUILD = "1240";
     public static final String FORGE_VERSION = "[" + FORGE_BASE + FORGE_BUILD + "]";
 
+    // Updating stuff
+    public static boolean enableUpdateNotice = true;
+
     // General Mod Stuff
     public static final String name = "DBCore";
     public static final String modid = "dbcore";

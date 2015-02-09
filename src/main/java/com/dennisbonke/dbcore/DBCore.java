@@ -3,6 +3,9 @@ package com.dennisbonke.dbcore;
 import com.dennisbonke.dbcore.common.CommonProxy;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
 import com.dennisbonke.dbcore.core.DBCoreProps;
+import com.dennisbonke.dbcore.core.enviroment.CheckMods;
+import com.dennisbonke.dbcore.core.mod.BaseMod;
+import com.dennisbonke.dbcore.core.mod.updater.UpdateManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -18,18 +21,21 @@ import org.apache.logging.log4j.Logger;
  * Created by Dennisbonke on 8-2-2015.
  */
 @Mod(name = DBCoreProps.name, modid = DBCoreProps.modid, version = DBCoreProps.version, dependencies = DBCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false)
-public class DBCore {
+public class DBCore extends BaseMod {
 
     @Instance(DBCoreProps.name)
     public static DBCore instance;
     @SidedProxy(clientSide = DBCoreProps.clientproxy, serverSide = DBCoreProps.commonproxy)
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("DBCore");
+    public static final String releaseURL = "https://raw.github.com/Dennisbonke/DBCore/master/VERSION";
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
         log.info("Starting Pre-Init...");
+        log.info("Checking MC version...");
+        CheckMods.checkMCVersion();
         // Do PreInit stuff
         // Load the config
         log.info("Loading config");
@@ -49,6 +55,9 @@ public class DBCore {
             log.error("Could not load configuration file, this is a severe error and should be noted");
         }
         proxy.preInit();
+        // Checking for updated
+        log.info("Starting update checker");
+        UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/Dennisbonke/DBCore/master/VERSION", "http://teamcofh.com/downloads/"));
         log.info("Pre-Init Finished");
 
     }
@@ -73,4 +82,18 @@ public class DBCore {
 
     }
 
+    @Override
+    public String getModId() {
+        return DBCoreProps.modid;
+    }
+
+    @Override
+    public String getModName() {
+        return DBCoreProps.name;
+    }
+
+    @Override
+    public String getModVersion() {
+        return DBCoreProps.version;
+    }
 }
