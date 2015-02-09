@@ -3,6 +3,7 @@ package com.dennisbonke.dbcore;
 import com.dennisbonke.dbcore.client.handler.KeyInputEventHandler;
 import com.dennisbonke.dbcore.common.CommonProxy;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
+import com.dennisbonke.dbcore.common.init.ModItems;
 import com.dennisbonke.dbcore.core.DBCoreProps;
 import com.dennisbonke.dbcore.core.enviroment.CheckMods;
 import com.dennisbonke.dbcore.core.mod.BaseMod;
@@ -15,6 +16,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.stats.Achievement;
+import net.minecraftforge.common.AchievementPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,6 +33,8 @@ public class DBCore extends BaseMod {
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("DBCore");
     public static final String releaseURL = "https://raw.github.com/Dennisbonke/DBCore/master/VERSION";
+    public static Achievement testAchievement;
+    public static AchievementPage DBCoreAchievementsPage;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -74,6 +79,10 @@ public class DBCore extends BaseMod {
         proxy.Init();
         // Register KeyInputEventHandler
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+        // Achievements test
+        testAchievement = new Achievement("achievement.test", "testAchievement", 0, 0, ModItems.testitem, null).registerStat();
+        DBCoreAchievementsPage = new AchievementPage("DBCore", new Achievement[] { testAchievement });
+        AchievementPage.registerAchievementPage(DBCoreAchievementsPage);
         log.info("Init Finished");
 
     }

@@ -3,6 +3,7 @@ package com.dennisbonke.dbcore.core.enviroment;
 import com.dennisbonke.dbcore.DBCore;
 import com.dennisbonke.dbcore.core.DBCoreProps;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.WrongMinecraftVersionException;
 
 /**
  * Created by Dennisbonke on 9-2-2015.
@@ -23,13 +24,18 @@ public class CheckMods {
 
     }
 
-    public static void checkMCVersion(){
+    public static void checkMCVersion() throws WrongMinecraftVersionException {
 
-        if (Loader.MC_VERSION == DBCoreProps.MC_VERSION){
-            DBCore.log.info("Using MC Version 1.7.10, proceed");
-        }
-        else {
-            DBCore.log.error("Not using MC Version 1.7.10, abort");
+        try {
+            if (Loader.MC_VERSION == DBCoreProps.MC_VERSION) {
+                DBCore.log.info("Using MC Version 1.7.10, proceed");
+            } else if (Loader.MC_VERSION == "1.7.2") {
+                DBCore.log.error("Not using MC Version 1.7.10, using 1.7.2, this might work");
+            }
+        } catch (WrongMinecraftVersionException e) {
+            if (Loader.MC_VERSION != DBCoreProps.MC_VERSION && Loader.MC_VERSION != "1.7.2"){
+                DBCore.log.fatal("Not using MC version 1.7.10 or 1.7.2, aborting");
+            }
         }
 
     }

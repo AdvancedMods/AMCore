@@ -5,6 +5,6 @@ package com.dennisbonke.dbcore.common.reference;
  */
 public enum Key {
 
-    UNKNOWN, CHARGE, RELEASE;
+    UNKNOWN, CHARGE, RELEASE, TEST, DEAD;
 
 }
