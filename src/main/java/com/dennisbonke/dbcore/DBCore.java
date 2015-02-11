@@ -1,9 +1,7 @@
 package com.dennisbonke.dbcore;
 
-import com.dennisbonke.dbcore.client.handler.KeyInputEventHandler;
 import com.dennisbonke.dbcore.common.CommonProxy;
 import com.dennisbonke.dbcore.common.handler.ConfigurationHandler;
-import com.dennisbonke.dbcore.common.init.ModItems;
 import com.dennisbonke.dbcore.core.DBCoreProps;
 import com.dennisbonke.dbcore.core.enviroment.CheckMods;
 import com.dennisbonke.dbcore.core.mod.BaseMod;
@@ -16,15 +14,13 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.stats.Achievement;
-import net.minecraftforge.common.AchievementPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
  * Created by Dennisbonke on 8-2-2015.
  */
-@Mod(name = DBCoreProps.name, modid = DBCoreProps.modid, version = DBCoreProps.version, dependencies = DBCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false)
+@Mod(name = DBCoreProps.name, modid = DBCoreProps.modid, version = DBCoreProps.version, dependencies = DBCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false, acceptedMinecraftVersions = DBCoreProps.ACCEPTED_MC_VERSION)
 public class DBCore extends BaseMod {
 
     @Instance(DBCoreProps.name)
@@ -33,8 +29,8 @@ public class DBCore extends BaseMod {
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("DBCore");
     public static final String releaseURL = "https://raw.github.com/Dennisbonke/DBCore/master/VERSION";
-    public static Achievement testAchievement;
-    public static AchievementPage DBCoreAchievementsPage;
+    //public static Achievement testAchievement;
+    //public static AchievementPage DBCoreAchievementsPage;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -66,7 +62,7 @@ public class DBCore extends BaseMod {
         log.info("Starting update checker");
         UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/Dennisbonke/DBCore/master/VERSION", "http://teamcofh.com/downloads/"));
         // Register Keybindings
-        proxy.registerKeyBindings();
+        //proxy.registerKeyBindings();
         log.info("Pre-Init Finished");
 
     }
@@ -78,11 +74,11 @@ public class DBCore extends BaseMod {
         // Do Init stuff
         proxy.Init();
         // Register KeyInputEventHandler
-        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+        //FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
         // Achievements test
-        testAchievement = new Achievement("achievement.test", "testAchievement", 0, 0, ModItems.testitem, null).registerStat();
-        DBCoreAchievementsPage = new AchievementPage("DBCore", new Achievement[] { testAchievement });
-        AchievementPage.registerAchievementPage(DBCoreAchievementsPage);
+        //testAchievement = new Achievement("achievement.test", "testAchievement", 0, 0, ModItems.testitem, null).registerStat();
+        //DBCoreAchievementsPage = new AchievementPage("DBCore", new Achievement[] { testAchievement });
+        //AchievementPage.registerAchievementPage(DBCoreAchievementsPage);
         log.info("Init Finished");
 
     }

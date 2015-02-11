@@ -1,8 +1,5 @@
 package com.dennisbonke.dbcore.common;
 
-import com.dennisbonke.dbcore.common.init.ModBlocks;
-import com.dennisbonke.dbcore.common.init.ModItems;
-import com.dennisbonke.dbcore.common.init.ModTiles;
 import com.dennisbonke.dbcore.core.enviroment.CheckMods;
 
 /**
@@ -17,9 +14,9 @@ public class CommonProxy {
     public static void preInit() {
 
         CheckMods.checkMods();
-        ModItems.init();
-        ModBlocks.init();
-        ModTiles.init();
+        //ModItems.init();
+        //ModBlocks.init();
+        //ModTiles.init();
     }
 
     public static void Init() {
