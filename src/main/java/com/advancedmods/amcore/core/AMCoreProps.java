@@ -11,7 +11,7 @@ public class AMCoreProps {
     public static final String FORGE_BASE = "10.13.2.";
     public static final String FORGE_BUILD = "1240";
     public static final String FORGE_VERSION = "[" + FORGE_BASE + FORGE_BUILD + "]";
-    public static final String VERSION_BASE = "0.2.0";
+    public static final String VERSION_BASE = "R0.2.0";
     public static final String VERSION_IDENTIFIER = "B1";
     public static final String VERSION_COMPLETE = REQUIRED_MC_VERSION + VERSION_BASE + VERSION_IDENTIFIER;
 

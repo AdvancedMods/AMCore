@@ -27,8 +27,8 @@ public class AMCore extends BaseMod {
     public static AMCore instance;
     @SidedProxy(clientSide = AMCoreProps.clientproxy, serverSide = AMCoreProps.commonproxy)
     public static CommonProxy proxy;
-    public static Logger log = LogManager.getLogger("DBCore");
-    public static final String releaseURL = "https://raw.github.com/Dennisbonke/DBCore/master/VERSION";
+    public static Logger log = LogManager.getLogger("AMCore");
+    public static final String releaseURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
     //public static Achievement testAchievement;
     //public static AchievementPage DBCoreAchievementsPage;
 
@@ -62,7 +62,7 @@ public class AMCore extends BaseMod {
         // Loading mod stuff
         // Checking for updated version
         log.info("Starting Update Checker for AMCore...");
-        UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/Dennisbonke/DBCore/master/VERSION", null));
+        UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/AdvancedMods/AMCore/master/VERSION", null));
         log.info("Update Checker for AMCore started");
         log.info("Pre-Init Finished");
 
