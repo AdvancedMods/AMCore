@@ -1,2 +1,2 @@
-# DBCore
-[FORGE] Core mod
+# AMCore
+[FORGE] Core mod for all AdvancedMods mods.

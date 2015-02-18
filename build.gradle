@@ -17,9 +17,9 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-0.0.1-A2"
-group= "com.dennisbonke.dbcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "DBCore"
+version = "1.7.10-0.2.0-B1"
+group= "com.advancedmods.amcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "AMCore"
 
 minecraft {
     version = "1.7.10-10.13.2.1240"
@@ -60,4 +60,31 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+
+//Because the normal default jar task has been modified to be obfuscated
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    //Since this is now the main version, maven standards
+    classifier = 'dev'
+
+    manifest {
+        //attributes FMLCorePlugin: "net.cazzar.example.CoreMod", //Only for Core Mods, no comma if only using the FMLCorePlugin
+        //attributes FMLAT: "fmlat.cfg" //Only for FMLAT
+    }
+}
+
+artifacts {
+    archives deobfJar
+}
+
+//Create a task to create a javadoc for the developers
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    //Again, maven standards to use classifier of javadoc, any smart IDE will use this if asked.
+    classifier 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+artifacts {
+    archives javadocJar
 }
