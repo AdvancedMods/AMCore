@@ -1,0 +1,16 @@
+[
+{
+  "modid": "AMCore",
+  "name": "AMCore",
+  "description": "Shared libraries for AdvancedMods mods..",
+  "version": "1.7.10-0.2.0-B1",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Dennisbonke", "Zandor300"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["CoFHCore", "FML", "Forge"]
+}
+]
