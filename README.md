@@ -5,7 +5,8 @@ AMCore
 
 Core mod for all AdvancedMods mods.<br>
 Requires Forge version 10.13.2.1240 and CoFHCore.<br>
-For Minecraft 1.7.10
+For Minecraft version 1.7.10.<br>
+<a href='https://minecraft.curseforge.com/mc-mods/227899-amcore/'>Download Here!</a>
 
 <h2>Credits</h2>
 Team CoFH, for their version checker.
