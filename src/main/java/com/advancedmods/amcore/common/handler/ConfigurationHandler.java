@@ -8,7 +8,11 @@ import net.minecraftforge.common.config.Configuration;
 import java.io.File;
 
 /**
+ * Configuration Handler for AMCore
  * Created by Dennisbonke on 8-2-2015.
+ *
+ * @author Dennis Bonke
+ * @since 0.2.0B1
  */
 public class ConfigurationHandler {
 
@@ -16,7 +20,6 @@ public class ConfigurationHandler {
     public static boolean configTest = true;
     public static boolean enableTestItem = true;
     public static boolean enableTestBlock = true;
-    //public static boolean niceStuff = true;
 
     public static void init(File configFile) {
         // Create the configuration object from the given configuration file
@@ -35,10 +38,7 @@ public class ConfigurationHandler {
 
     private static void loadConfiguration() {
         // Name, Category, Default value, Description
-        configTest = configuration.getBoolean("configTest", Configuration.CATEGORY_GENERAL, true, "This is an example configuration value");
-        enableTestItem = configuration.getBoolean("enableTestItem", Configuration.CATEGORY_GENERAL, true, "Enable Test Item");
-        enableTestBlock = configuration.getBoolean("enableTestBlock", Configuration.CATEGORY_GENERAL, true, "Enable Test Block");
-        //niceStuff = configuration.getBoolean("niceStuff", Configuration.CATEGORY_GENERAL, true, "You like it!");
+        configTest = configuration.getBoolean("configTest", Configuration.CATEGORY_GENERAL, true, "Test Value");
 
         if (configuration.hasChanged()) {
             configuration.save();

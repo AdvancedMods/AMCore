@@ -1,16 +1,18 @@
 package com.advancedmods.amcore.core;
 
 /**
+ * Common Properties for AMCore
  * Created by Dennisbonke on 8-2-2015.
+ *
+ * @author Dennis Bonke
+ * @since 0.2.0B1
  */
 public class AMCoreProps {
 
     // Versioning
     public static final String REQUIRED_MC_VERSION = "1.7.10";
-    public static final String ACCEPTED_MC_VERSION = REQUIRED_MC_VERSION + "," + "1.7.2";
-    public static final String FORGE_BASE = "10.13.2.";
-    public static final String FORGE_BUILD = "1240";
-    public static final String FORGE_VERSION = "[" + FORGE_BASE + FORGE_BUILD + "]";
+    public static final String REQUIRED_FORGE_BASE = "10.13.2.1240";
+    public static final String FORGE_VERSION = "[" + REQUIRED_FORGE_BASE + "]";
     public static final String VERSION_BASE = "R0.2.0";
     public static final String VERSION_IDENTIFIER = "B1";
     public static final String VERSION_COMPLETE = REQUIRED_MC_VERSION + VERSION_BASE + VERSION_IDENTIFIER;

@@ -5,7 +5,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
 /**
+ * Implement this on items / blocks that should have a key binding.
  * Created by Dennisbonke on 9-2-2015.
+ *
+ * @author Dennis Bonke
+ * @since 0.2.0B1
  */
 public interface IKeybound {
 

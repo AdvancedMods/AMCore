@@ -3,7 +3,7 @@ package com.advancedmods.amcore;
 import com.advancedmods.amcore.common.CommonProxy;
 import com.advancedmods.amcore.common.handler.ConfigurationHandler;
 import com.advancedmods.amcore.core.AMCoreProps;
-import com.advancedmods.amcore.core.enviroment.CheckMods;
+import com.advancedmods.amcore.core.environment.CheckEnv;
 import com.advancedmods.amcore.core.mod.BaseMod;
 import com.advancedmods.amcore.core.mod.updater.UpdateManager;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -18,9 +18,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
+ * Main Mod class for AMCore
  * Created by Dennisbonke on 8-2-2015.
+ *
+ * @author Dennis Bonke
+ * @since 0.2.0B1
  */
-@Mod(name = AMCoreProps.name, modid = AMCoreProps.modid, version = AMCoreProps.version, dependencies = AMCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false, acceptedMinecraftVersions = AMCoreProps.ACCEPTED_MC_VERSION)
+@Mod(name = AMCoreProps.name, modid = AMCoreProps.modid, version = AMCoreProps.version, dependencies = AMCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false, acceptedMinecraftVersions = AMCoreProps.REQUIRED_MC_VERSION)
 public class AMCore extends BaseMod {
 
     @Instance(AMCoreProps.name)
@@ -29,17 +33,14 @@ public class AMCore extends BaseMod {
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("AMCore");
     public static final String releaseURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
-    //public static Achievement testAchievement;
-    //public static AchievementPage DBCoreAchievementsPage;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 
         log.info("Starting AMCore version: " + AMCoreProps.version + "...");
         log.info("Starting Pre-Init...");
-        log.info("Checking MC version...");
-        CheckMods.checkMCVersion();
-        CheckMods.checkMods();
+        log.debug("Checking MC version...");
+        CheckEnv.checkMCVersion();
         // Do PreInit stuff
         // Load the config
         log.info("Loading config...");
@@ -73,10 +74,6 @@ public class AMCore extends BaseMod {
 
         log.info("Starting Init...");
         // Do Init stuff
-        // Achievements test
-        //testAchievement = new Achievement("achievement.test", "testAchievement", 0, 0, ModItems.testitem, null).registerStat();
-        //DBCoreAchievementsPage = new AchievementPage("DBCore", new Achievement[] { testAchievement });
-        //AchievementPage.registerAchievementPage(DBCoreAchievementsPage);
         log.info("Init Finished");
         log.info("Mod loaded");
 
