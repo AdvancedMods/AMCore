@@ -88,3 +88,12 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives javadocJar
 }
+
+apply plugin: 'curseforge'
+curse {
+    apiKey      = project.curseforge_key // gradle curse -Pcurseforge_key=your-api-key
+    projectId   = "227899" // http://minecraft.curseforge.com/mc-mods/"xxxxxx"-projectname
+    releaseType = "beta" //alpha beta release
+    changelog   = "" //must have at least an empty string
+    addGameVersion "1.7.10" //add additional versions compatible with your mod
+}
