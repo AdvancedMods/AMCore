@@ -17,8 +17,7 @@ public class CheckEnv {
 
         if (Loader.MC_VERSION == AMCoreProps.REQUIRED_MC_VERSION) {
             AMCore.log.debug("Using MC Version 1.7.10, proceed");
-        }
-        if (Loader.MC_VERSION != AMCoreProps.REQUIRED_MC_VERSION) {
+        } else {
             AMCore.log.fatal("Not using MC version 1.7.10, aborting");
         }
     }
