@@ -17,7 +17,20 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-0.2.1-B1"
+project.ext.buildnumber = "CUSTOM_BUILD" // referenced as project.buildnumber
+
+if (System.getenv().BUILD_NUMBER) // assuming jenkins ofcourse
+{
+    project.buildnumber = System.getenv().BUILD_NUMBER
+    println "Using build number ${project.buildnumber}..."
+}
+else
+{
+    project.buildnumber = "0"
+    println "!! No build number set !!"
+}
+
+version = "1.7.10-0.2.1-B1" + "-" + project.buildnumber
 group= "com.advancedmods.amcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AMCore"
 
