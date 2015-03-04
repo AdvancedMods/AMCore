@@ -49,9 +49,9 @@ public class AMCore extends BaseMod {
         try {
             // NOTE: This is debug, kinda
             // Check configTest value
-            if (ConfigurationHandler.configTest == true) {
+            if (ConfigurationHandler.configTest) {
                 log.debug("Test value is true");
-            } else if (ConfigurationHandler.configTest == false) {
+            } else if (!ConfigurationHandler.configTest) {
                 log.debug("Test value is false");
             } else {
                 log.warn("Could not find test value, this is strange");

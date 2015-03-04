@@ -26,6 +26,6 @@ public class AMCoreProps {
     public static final String version = VERSION_COMPLETE;
     public static final String clientproxy = "com.advancedmods.amcore.client.ClientProxy";
     public static final String commonproxy = "com.advacedmods.amcore.common.CommonProxy";
-    public static final String dependencies = "required-after:Forge@" + FORGE_VERSION + ";required-after:CoFHCore;before:AdvancedFoods";
+    public static final String dependencies = "required-after:Forge@" + FORGE_VERSION + ";before:AdvancedFoods";
 
 }
