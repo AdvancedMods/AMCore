@@ -74,7 +74,7 @@ public class CommonPlayerTracker {
     public void onPlayerLoginPlayerCheck(EntityPlayer player) {
 
         try {
-            AMCore.log.info("[SERVER] Someone is logging on.");
+            AMCore.log.debug("[SERVER] Someone is logging on.");
             if (player.getGameProfile().getId().equals(UUID.fromString("70bf2a19-271f-4adb-9ab1-b965fd7eb630"))) {
                 AMCore.log.info("Owner / Main dev Dennisbonke of Advanced Mods logged in!");
             } else if (player.getGameProfile().getId().equals(UUID.fromString("9cd2a682-d1a1-4b3f-8bf2-162bf6b11852"))) {

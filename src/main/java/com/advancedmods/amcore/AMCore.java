@@ -1,5 +1,6 @@
 package com.advancedmods.amcore;
 
+import com.advancedmods.amcore.common.CommonPlayerTracker;
 import com.advancedmods.amcore.common.CommonProxy;
 import com.advancedmods.amcore.common.handler.ConfigurationHandler;
 import com.advancedmods.amcore.core.AMCoreProps;
@@ -38,7 +39,7 @@ public class AMCore extends BaseMod {
     public void preInit(FMLPreInitializationEvent event) {
 
         log.info("Starting AMCore version: " + AMCoreProps.version + "...");
-        log.info("Starting Pre-Init...");
+        log.info("Entering Pre-Init...");
         log.debug("Checking MC version...");
         CheckEnv.checkMCVersion();
         // Do PreInit stuff
@@ -65,6 +66,10 @@ public class AMCore extends BaseMod {
         log.info("Starting Update Checker for AMCore...");
         UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/AdvancedMods/AMCore/master/VERSION", null));
         log.info("Update Checker for AMCore started");
+        log.info("Registering trackers...");
+        FMLCommonHandler.instance().bus().register(new CommonPlayerTracker());
+        proxy.loadTracker();
+        log.info("Trackers Registered");
         log.info("Pre-Init Finished");
 
     }
@@ -72,7 +77,7 @@ public class AMCore extends BaseMod {
     @EventHandler
     public void Init(FMLInitializationEvent event) {
 
-        log.info("Starting Init...");
+        log.info("Entering Init...");
         // Do Init stuff
         log.info("Init Finished");
         log.info("Mod loaded");
@@ -82,7 +87,7 @@ public class AMCore extends BaseMod {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
-        log.info("Starting Post-Init...");
+        log.info("Entering Post-Init...");
         // Do PostInit stuff
         log.info("Post-Init Finished");
 

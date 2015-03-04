@@ -27,7 +27,7 @@ public class ClientProxy extends CommonProxy {
     public void loadTracker() {
 
         super.loadTracker();
-        //FMLCommonHandler.instance().bus().register(new ClientPlayerTracker());
+        FMLCommonHandler.instance().bus().register(new ClientPlayerTracker());
 
     }
 
