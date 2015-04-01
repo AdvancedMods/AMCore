@@ -10,5 +10,3 @@ For Minecraft version 1.7.10.<br>
 
 <h2>Credits</h2>
 Team CoFH, for their version checker.
-
-Hoi
