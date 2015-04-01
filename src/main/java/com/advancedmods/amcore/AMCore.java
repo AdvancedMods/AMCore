@@ -33,7 +33,8 @@ public class AMCore extends BaseMod {
     @SidedProxy(clientSide = AMCoreProps.clientproxy, serverSide = AMCoreProps.commonproxy)
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("AMCore");
-    public static final String releaseURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
+    public static final String updateURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
+    public static ConfigurationHandler config;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -47,25 +48,29 @@ public class AMCore extends BaseMod {
         log.info("Loading config...");
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-        try {
-            // NOTE: This is debug, kinda
-            // Check configTest value
-            if (ConfigurationHandler.configTest) {
-                log.debug("Test value is true");
-            } else if (!ConfigurationHandler.configTest) {
-                log.debug("Test value is false");
-            } else {
-                log.warn("Could not find test value, this is strange");
-            }
-        } catch (Exception e) {
-            log.error("Could not load configuration file, this is a severe error and should be noted");
-        }
         log.info("Config loaded");
         // Loading mod stuff
         // Checking for updated version
-        log.info("Starting Update Checker for AMCore...");
-        UpdateManager.registerUpdater(new UpdateManager(this, "https://raw.github.com/AdvancedMods/AMCore/master/VERSION", null));
-        log.info("Update Checker for AMCore started");
+        if (config.enableUpdateChecker) {
+            try {
+                log.info("Starting Update Checker for AMCore...");
+                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, null));
+                log.info("Update Checker for AMCore started");
+            } catch (Exception e) {
+                log.error("Failed to start the update checker, printing stacktrace...");
+                e.printStackTrace();
+            }
+        } else if (!config.enableUpdateChecker) {
+            log.info("Update checker disabled");
+        } else {
+            log.error("Could not read config value, ignoring...");
+            try {
+                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, null));
+            } catch (Exception e) {
+                log.error("Failed to start the update checker, printing stacktrace...");
+                e.printStackTrace();
+            }
+        }
         log.info("Registering trackers...");
         FMLCommonHandler.instance().bus().register(new CommonPlayerTracker());
         proxy.loadTracker();

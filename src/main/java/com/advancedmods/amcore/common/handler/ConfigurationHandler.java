@@ -16,32 +16,32 @@ import java.io.File;
  */
 public class ConfigurationHandler {
 
-    public static Configuration configuration;
-    public static boolean configTest = true;
-    public static boolean enableTestItem = true;
-    public static boolean enableTestBlock = true;
+    public static Configuration config;
+    public static boolean enableUpdateNotice = true;
+    public static boolean enableUpdateChecker = true;
 
     public static void init(File configFile) {
         // Create the configuration object from the given configuration file
-        if (configuration == null) {
-            configuration = new Configuration(configFile);
-            loadConfiguration();
+        if (config == null) {
+            config = new Configuration(configFile);
+            loadConfig();
         }
     }
 
     @SubscribeEvent
     public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.modID.equalsIgnoreCase(AMCoreProps.modid)) {
-            loadConfiguration();
+            loadConfig();
         }
     }
 
-    private static void loadConfiguration() {
+    private static void loadConfig() {
         // Name, Category, Default value, Description
-        configTest = configuration.getBoolean("configTest", Configuration.CATEGORY_GENERAL, true, "Test Value");
+        enableUpdateNotice = config.getBoolean("enableUpdateNotice", "updates", true, "When false, will only show critical updates");
+        enableUpdateChecker = config.getBoolean("enableUpdateChecker", "updates", true, "If false, will completely disable the update checker");
 
-        if (configuration.hasChanged()) {
-            configuration.save();
+        if (config.hasChanged()) {
+            config.save();
         }
     }
 

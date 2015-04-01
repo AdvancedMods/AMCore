@@ -1,5 +1,6 @@
 package com.advancedmods.amcore.core.mod.updater;
 
+import com.advancedmods.amcore.common.handler.ConfigurationHandler;
 import com.advancedmods.amcore.core.AMCoreProps;
 import com.google.common.base.Strings;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -70,7 +71,7 @@ public class UpdateManager {
 			_notificationDisplayed = true;
 			FMLCommonHandler.instance().bus().unregister(this);
 			if (_updateThread.newVersionAvailable()) {
-				if (!AMCoreProps.enableUpdateNotice && !_updateThread.isCriticalUpdate()) {
+				if (!ConfigurationHandler.enableUpdateNotice && !_updateThread.isCriticalUpdate()) {
 					return;
 				}
 				ModVersion newVersion = _updateThread.newVersion();

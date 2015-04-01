@@ -2,6 +2,7 @@ package com.advancedmods.amcore.core.environment;
 
 import com.advancedmods.amcore.AMCore;
 import com.advancedmods.amcore.core.AMCoreProps;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 
 /**
@@ -16,9 +17,11 @@ public class CheckEnv {
     public static void checkMCVersion() {
 
         if (Loader.MC_VERSION == AMCoreProps.REQUIRED_MC_VERSION) {
-            AMCore.log.debug("Using MC Version 1.7.10, proceed");
+            AMCore.log.trace("Using MC Version 1.7.10, proceed");
         } else {
-            AMCore.log.fatal("Not using MC version 1.7.10, aborting");
+            FMLLog.severe("Not using MC version 1.7.10, aborting");
+            System.gc();
+            System.exit(-1);
         }
     }
 }

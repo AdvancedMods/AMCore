@@ -25,9 +25,7 @@ public class ClientPlayerTracker {
     }
 
     public void onPlayerLoginClient() {
-
         AMCore.log.debug("[CLIENT] Logging in....");
-
     }
 
     @SubscribeEvent
