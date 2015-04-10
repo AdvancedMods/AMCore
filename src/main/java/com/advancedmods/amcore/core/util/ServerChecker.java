@@ -1,4 +1,4 @@
-package com.advancedmods.amcore.util;
+package com.advancedmods.amcore.core.util;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLLog;

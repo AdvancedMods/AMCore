@@ -1,7 +1,7 @@
 package com.advancedmods.amcore.common;
 
 import com.advancedmods.amcore.AMCore;
-import com.advancedmods.amcore.util.EnumServerType;
+import com.advancedmods.amcore.core.util.EnumServerType;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;

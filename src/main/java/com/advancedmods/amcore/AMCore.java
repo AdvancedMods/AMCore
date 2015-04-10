@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
  * @author Dennis Bonke
  * @since 0.2.0B1
  */
-@Mod(name = AMCoreProps.name, modid = AMCoreProps.modid, version = AMCoreProps.version, dependencies = AMCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false, acceptedMinecraftVersions = AMCoreProps.REQUIRED_MC_VERSION)
+@Mod(name = AMCoreProps.name, modid = AMCoreProps.modid, version = AMCoreProps.version, dependencies = AMCoreProps.dependencies, modLanguage = "java", canBeDeactivated = false, acceptedMinecraftVersions = AMCoreProps.MC_VERSION)
 public class AMCore extends BaseMod {
 
     @Instance(AMCoreProps.name)

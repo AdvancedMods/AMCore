@@ -1,4 +1,4 @@
-package com.advancedmods.amcore.util;
+package com.advancedmods.amcore.core.util;
 
 /**
  * Created by Dennisbonke on 3-3-2015.

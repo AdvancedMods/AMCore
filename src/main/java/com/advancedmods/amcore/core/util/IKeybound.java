@@ -1,4 +1,4 @@
-package com.advancedmods.amcore.util;
+package com.advancedmods.amcore.core.util;
 
 import com.advancedmods.amcore.common.reference.Key;
 import net.minecraft.entity.player.EntityPlayer;
