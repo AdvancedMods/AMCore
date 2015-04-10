@@ -16,7 +16,7 @@ public class CheckEnv {
 
     public static void checkMCVersion() {
 
-        if (Loader.MC_VERSION == AMCoreProps.REQUIRED_MC_VERSION) {
+        if (Loader.MC_VERSION == AMCoreProps.MC_VERSION) {
             AMCore.log.trace("Using MC Version 1.7.10, proceed");
         } else {
             FMLLog.severe("Not using MC version 1.7.10, aborting");
