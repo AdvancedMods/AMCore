@@ -30,7 +30,7 @@ else
     println "!! No build number set !!"
 }
 
-version = "1.7.10-0.2.1-B1" + "-" + project.buildnumber
+version = "1.7.10-0.2.1-B3" + "-" + project.buildnumber
 group= "com.advancedmods.amcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AMCore"
 
