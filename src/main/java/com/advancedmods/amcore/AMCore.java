@@ -34,6 +34,7 @@ public class AMCore extends BaseMod {
     public static CommonProxy proxy;
     public static Logger log = LogManager.getLogger("AMCore");
     public static final String updateURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
+    public static final String downloadURL = "http://ci.zsinfo.nl/job/AMCore/lastSuccessfulBuild/";
     public static ConfigurationHandler config;
 
     @EventHandler
@@ -54,7 +55,7 @@ public class AMCore extends BaseMod {
         if (config.enableUpdateChecker) {
             try {
                 log.info("Starting Update Checker for AMCore...");
-                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, null));
+                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, downloadURL));
                 log.info("Update Checker for AMCore started");
             } catch (Exception e) {
                 log.error("Failed to start the update checker, printing stacktrace...");
@@ -65,7 +66,7 @@ public class AMCore extends BaseMod {
         } else {
             log.error("Could not read config value, ignoring...");
             try {
-                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, null));
+                UpdateManager.registerUpdater(new UpdateManager(this, updateURL, downloadURL));
             } catch (Exception e) {
                 log.error("Failed to start the update checker, printing stacktrace...");
                 e.printStackTrace();
