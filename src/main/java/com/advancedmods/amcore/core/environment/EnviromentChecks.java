@@ -1,11 +1,14 @@
 package com.advancedmods.amcore.core.environment;
 
 import com.advancedmods.amcore.core.AMCoreProps;
+import com.advancedmods.amcore.core.util.EnumServerType;
+import com.advancedmods.amcore.core.util.ServerChecker;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
+import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +32,7 @@ public class EnviromentChecks {
         try {
             if ((FMLCommonHandler.instance().getSidedDelegate().getSide() == Side.CLIENT) && ((FMLClientHandler.instance().hasOptifine()) || (Loader.isModLoaded("optifine")))) {
                 hasOptifine = true;
-                log.warn("Optifine has been detected on your Minecraft installation, this can cause (rendering) issues");
+                log.warn("Optifine has been detected on your Minecraft installation, this can cause (rendering) issues due to base edits and / or ASM usage!");
             } else {
                 hasOptifine = false;
             }
@@ -72,5 +75,9 @@ public class EnviromentChecks {
             System.gc();
             System.exit(-1);
         }
+    }
+
+    public static boolean checkOnlineMode() {
+        return MinecraftServer.getServer().isServerInOnlineMode();
     }
 }

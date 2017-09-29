@@ -16,7 +16,7 @@ public class ServerChecker {
 
     public static Object ServerType;
 
-    public void CheckServerType() {
+    public static void CheckServerType() {
 
         if (Minecraft.getMinecraft().isSingleplayer()) {
 
@@ -45,7 +45,7 @@ public class ServerChecker {
         } else {
 
             ServerType = EnumServerType.UNKNOWN;
-            FMLLog.bigWarning("Could not determine which server you are on!");
+            FMLLog.bigWarning("Could not determine wether we are client or server!");
 
         }
 

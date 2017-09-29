@@ -8,6 +8,7 @@ import com.advancedmods.amcore.core.environment.EnviromentChecks;
 import com.advancedmods.amcore.core.environment.IMCHandler;
 import com.advancedmods.amcore.core.mod.BaseMod;
 import com.advancedmods.amcore.core.mod.updater.UpdateManager;
+import com.advancedmods.amcore.core.util.ServerChecker;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -38,7 +39,8 @@ public class AMCore extends BaseMod {
     public static Logger log = LogManager.getLogger("AMCore");
     public static final String issueURL = "https://github.com/AdvancedMods/AMCore/issues";
     public static final String updateURL = "https://raw.github.com/AdvancedMods/AMCore/master/VERSION";
-    public static final String downloadURL = "http://ci.zsinfo.nl/job/AMCore/lastSuccessfulBuild/";
+    //public static final String downloadURL = "http://ci.zsinfo.nl/job/AMCore/lastSuccessfulBuild/";
+    public static final String downloadURL = "https://github.com/AdvancedMods/AMCore/releases";
     public static ConfigurationHandler config;
 
     @EventHandler
@@ -49,6 +51,10 @@ public class AMCore extends BaseMod {
         // MC Version check
         log.debug("Checking MC version...");
         EnviromentChecks.checkMCVersion();
+        log.debug("Check complete");
+        //log.info("Checking if we are the client or the server...");
+        //ServerChecker.CheckServerType();
+        //log.info("Check complete");
         // Optifine check
         try {
             EnviromentChecks.log.info("Checking if optifine is installed...");

@@ -30,12 +30,12 @@ else
     println "!! No build number set !!"
 }
 
-version = "1.7.10-0.2.1-B4" + "-" + project.buildnumber
+version = "1.7.10-0.2.2-B1" + "-" + project.buildnumber
 group= "com.advancedmods.amcore" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "AMCore"
 
 minecraft {
-    version = "1.7.10-10.13.2.1240"
+    version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "eclipse"
 }
 
@@ -102,11 +102,11 @@ artifacts {
     archives javadocJar
 }
 
-apply plugin: 'curseforge'
-curse {
-    apiKey      = project.curseforge_key // gradle curse -Pcurseforge_key=your-api-key
-    projectId   = "227899" // http://minecraft.curseforge.com/mc-mods/"xxxxxx"-projectname
-    releaseType = "beta" //alpha beta release
-    changelog   = "" //must have at least an empty string
-    addGameVersion "1.7.10" //add additional versions compatible with your mod
-}
+//apply plugin: 'curseforge'
+//curse {
+//    apiKey      = project.curseforge_key // gradle curse -Pcurseforge_key=your-api-key
+//    projectId   = "227899" // http://minecraft.curseforge.com/mc-mods/"xxxxxx"-projectname
+//    releaseType = "beta" //alpha beta release
+//   changelog   = "" //must have at least an empty string
+//   addGameVersion "1.7.10" //add additional versions compatible with your mod
+//}
